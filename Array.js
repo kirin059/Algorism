@@ -33,3 +33,33 @@ console.log(twoColor)  // ['blue', 'kaki']
 
 let sliceColor = color.slice(1);
 console.log(sliceColor) // ["blue", "kaki", "green"]
+
+
+
+// 3) 한 줄에 여러개의 숫자가 입력되면, 역순으로 그 숫자들을 하나씩 출력하는 프로그램을 작성하시오.
+// reverse()   >>  array 메서드
+function reverse(n) {
+    let _arr = n.split(' ');
+    console.log(_arr)  //  ["1", "2", "3", "4", "5"]
+
+    console.log(_arr.reverse())  // ["5", "4", "3", "2", "1"]
+}
+
+reverse('1 2 3 4 5')
+
+console.log('---------------------------------------')
+// 4) 키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램을 작성해보자.
+// sort()   >>  array 메서드
+let result1 = '176 156 155 165 166 169'
+let result2 = '155 156 165 166 169 176'
+
+function height(n) {
+    let arrToString = n.split(' ').sort().join(' ')
+    console.log(arrToString)   // 155 156 165 166 169 176
+
+    arrToString === n ? console.log('YES') : console.log('NO')
+}
+
+height(result1) // NO
+height(result2) // YES
+
