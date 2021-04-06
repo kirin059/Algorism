@@ -25,3 +25,40 @@ function pickOne(n) {
 }
 
 pickOne(candidates)
+
+
+
+// Object.entries(obj)   >>  객체를 배열(키:값)의 형태로 변환
+const animal1 = { tiger: 1, lion: 2 }
+console.log(Object.entries(animal1))  // [[tiger : 1], [lion : 2]]
+
+const animal2 = { tiger: 'a', lion: 'b', rabbit: 'c' }
+console.log(Object.entries(animal2))  //  [[tiger : 'a'], [lion : 'b'], [rabbit : 'c']]
+
+
+
+// 2) 학생들의 점수를 공백으로 구분하여 입력을 받고 1~3위 학생 중 중복되는 학생까지 포함하여 사탕을 받을 학생의 수를 출력하세요.
+
+let score = '97 86 75 66 55 97 85 97 97 95'
+
+function top3(n) {
+    let arrScore = n.split(' ');
+    console.log(arrScore)  // ["97", "86", "75", "66", "55", "97", "85", "97", "97", "95"]
+
+    let scoreObj = {};
+    for (let i = 0; i < arrScore.length; i++) {
+        scoreObj[arrScore[i]] ? scoreObj[arrScore[i]] += 1 : scoreObj[arrScore[i]] = 1
+    }
+    console.log(scoreObj)  //{55: 1, 66: 1, 75: 1, 85: 1, 86: 1, 95: 1, 97: 4}
+
+    // 객체를 배열로 변환하기 (Object.entries())
+    let arrToObj1 = Object.entries(scoreObj)
+    console.log(arrToObj1)  // [["55", 1], ["66", 1], ["75", 1], ["85", 1], ["95", 1], ["97", 4]]
+
+    arrToObj1.sort((a, b) => b[0] - a[0])
+    console.log(arrToObj1)  // [ ["97", 4], ["95", 1], ["85", 1], ["75", 1], ["66", 1], ["55", 1] ]
+
+    console.log(arrToObj1[0][1] + arrToObj1[1][1] + arrToObj1[2][1]);
+}
+
+top3(score)
