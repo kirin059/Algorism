@@ -47,9 +47,10 @@ function reverse(n) {
 
 reverse('1 2 3 4 5')
 
-console.log('---------------------------------------')
+
 // 4) 키가 주어지면 순서대로 제대로 섰는지 확인하는 프로그램을 작성해보자.
 // sort()   >>  array 메서드
+// join()   >>  배열을 문자열로 합친다
 let result1 = '176 156 155 165 166 169'
 let result2 = '155 156 165 166 169 176'
 
@@ -62,4 +63,7 @@ function height(n) {
 
 height(result1) // NO
 height(result2) // YES
+
+
+
 
