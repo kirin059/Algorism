@@ -58,7 +58,7 @@ function top3(n) {
     arrToObj1.sort((a, b) => b[0] - a[0])
     console.log(arrToObj1)  // [ ["97", 4], ["95", 1], ["85", 1], ["75", 1], ["66", 1], ["55", 1] ]
 
-    console.log(arrToObj1[0][1] + arrToObj1[1][1] + arrToObj1[2][1]);
+    console.log(arrToObj1[0][1] + arrToObj1[1][1] + arrToObj1[2][1]);  // 6
 }
 
 top3(score)

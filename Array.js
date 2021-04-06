@@ -65,5 +65,36 @@ height(result1) // NO
 height(result2) // YES
 
 
+// 5) 문장이 입력되면 모든 q를 e로 바꾸는 프로그램을 작성해 주세요.
+let inputStr1 = 'querty'
+let inputStr2 = 'hqllo my namq is hyqwon'
+
+function change(n) {
+    let changeStr = n.split('');
+    console.log(changeStr) // ["q", "u", "e", "r", "t", "y"]
+
+    for (let i = 0; i < changeStr.length; i++) {
+        if (changeStr[i] === 'q') {
+            changeStr[i] = 'e'
+        }
+    }
+    const result = changeStr.join('')
+    console.log(result)  // euerty
+}
+
+change(inputStr1)
+
+
+// split()과 join() 을 활용하여 다른 방식으로 문제 풀이
+
+function change2(n) {
+    let changeStr = n.split('q');
+    console.log(changeStr)  // ["", "uerty"]   >> q를 기준으로 쪼개서 배열에 담는다
+
+    let joinStr = changeStr.join('e')
+    console.log(joinStr)  // 배열의 모든 요소를 합해서 하나의 문자열로 출력하므로, ["", "uerty"]를 'e'로 연결하여 출력하므로, euerty가 됨
+}
+
+change2(inputStr1)
 
 
