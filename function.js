@@ -43,6 +43,7 @@ console.log(temp_users1)
 
 // 4) 30세 미만인 users의 ages를 수집한다
 let ages = [];
+
 for (let i = 0; i < temp_users1.length; i++) {
     ages.push(temp_users1[i].age)
 }
@@ -50,8 +51,10 @@ for (let i = 0; i < temp_users1.length; i++) {
 console.log(ages)
 
 
-// filter, map 으로 리팩토링
-// if문 내 조건인 "users[i].age >= 30" 과 "users[i].age < 30" 부분을 predi함수로 만들어서 중복을 없앤다 (응용형 함수, 함수 안에 함수를 적용한다, 함수를 인자로 받아서 원하는 시점에 평가한다)
+// filter, map 으로 리팩토링(1)
+
+// if문 내 조건인 "users[i].age >= 30" 과 "users[i].age < 30" 부분을 predi함수로 만들어서 중복을 없앤다 
+// 응용형 함수, 함수 안에 함수를 적용한다, 함수를 인자로 받아서 원하는 시점에 평가한다.
 function _filter(users, predi) {
     let temp_users = [];
 
@@ -66,3 +69,27 @@ function _filter(users, predi) {
 // predi함수는 인자를 받을 때, 함수 조건을 설정해준다
 console.log(_filter(users, function (user) { return user.age >= 30 }));
 console.log(_filter(users, function (user) { return user.age < 30 }));
+
+
+//temp_users1 부분을 첫 번째 인자로 받고, 두 번째 인자는 predi함수로 만들어서 중복을 없앤다 
+function _map(temp_users1, predi) {
+    let ages = [];
+
+    for (let i = 0; i < temp_users1.length; i++) {
+        ages.push(predi(temp_users1[i]))
+    }
+    return ages;
+}
+
+console.log(_map(temp_users1, function (user) { return user.age })); // 30세 미만 users의 나이 출력
+console.log(_map(temp_users, function (user) { return user.age }));  // 30세 이상 users의 나이 출력
+
+
+// filter, map 으로 리팩토링(2)
+// _filter함수로 만든 부분을 첫 번째 인자로 받고, 두 번째 인자는 predi함수로 만들어서 중복을 없앤다 (map함수에 filter함수를 첫번째 인자로 받는다(filtering))
+console.log(
+    _map(
+        _filter(users, function (user) { return user.age >= 30 }), // 첫 번째 인자
+        function (user) { return user.name }
+    )
+)
