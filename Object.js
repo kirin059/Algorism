@@ -62,3 +62,6 @@ function top3(n) {
 }
 
 top3(score)
+
+
+console.clear()

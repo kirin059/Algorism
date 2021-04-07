@@ -81,3 +81,5 @@ function sosu(n) {
 }
 
 sosu(3)
+
+console.clear()

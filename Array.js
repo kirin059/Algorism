@@ -97,4 +97,6 @@ function change2(n) {
 
 change2(inputStr1)
 
+console.clear()
+
 

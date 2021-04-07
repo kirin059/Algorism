@@ -46,3 +46,7 @@ console.log(word2.split(' '))  // ["123", "456", "789"]
 
 let word3 = '가, 나, 다, 라, 마, 바, 사'
 console.log(word3.split(','))  // ["가", " 나", " 다", " 라", " 마", " 바", " 사"]
+
+
+
+console.clear()
