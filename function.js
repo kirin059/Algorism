@@ -22,6 +22,7 @@ for (let i = 0; i < users.length; i++) {
 
 console.log(temp_users)
 
+
 // 2) 30세 이상인 users의 names를 수집한다
 let names = [];
 for (let i = 0; i < temp_users.length; i++) {
@@ -29,6 +30,7 @@ for (let i = 0; i < temp_users.length; i++) {
 }
 
 console.log(names)
+
 
 // 3) 30세 미만인 users를 거른다
 let temp_users1 = [];
@@ -40,6 +42,7 @@ for (let i = 0; i < users.length; i++) {
 }
 
 console.log(temp_users1)
+
 
 // 4) 30세 미만인 users의 ages를 수집한다
 let ages = [];
@@ -93,3 +96,56 @@ console.log(
         function (user) { return user.name }
     )
 )
+
+// 컬렉션 중심 프로그래밍의 유형별 함수 만들기
+
+// 1) 수집하기 - map
+console.log(
+    _map(users, function (user) {
+        return user.name;
+    })
+);
+
+// 1-1) values
+function _values(data) {
+    return _map(data, function (val) { return val; });
+}
+
+console.log(users[0]);
+console.log(_values(users[1]));
+
+console.clear()
+
+
+
+// 17. 사용자가 입력한 양의 정수의 각 자리수의 합을 구하는 프로그램을 만들어주세요
+let numbers = '18234'
+
+function addNum(n) {
+    let nums = n.split('');
+    console.log(nums)  // ["1", "8", "2", "3", "4"]
+
+    let result = 0;
+    for (let i = 0; i < nums.length; i++) {
+        result += Number(nums[i])
+    }
+    console.log(result)
+}
+
+addNum(numbers)
+
+
+// 18. 문자열이 주어지면 대문자와 소문자를 바꿔서 출력하는 프로그램을 작성하세요.
+let strs = 'AAABBBcccddd';
+
+function changeStr(n) {
+    let splitStr = n.split('')
+    // console.log(splitStr);
+
+    let empty = [];
+    for (let i = 0; i < splitStr.length; i++) {
+        splitStr[i] === splitStr[i].toUpperCase() ? empty.push(splitStr[i].toLowerCase()) : empty.push(splitStr[i].toUpperCase())
+    }
+    console.log(empty.join(''));
+}
+changeStr(strs)
