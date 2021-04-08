@@ -83,3 +83,22 @@ function sosu(n) {
 sosu(3)
 
 console.clear()
+
+// 5) 스탬프에 적힌 숫자가 공백으로 구분되어 주어지면 이 숫자가 연속수인지 아닌지 "YES"와 "NO"로 판별하는 프로그램을 작성하시오
+// 연속수: 앞의 수에서 뒤의 수를 뺐을 때, 차이가 1이면 연속수이고 아니면 연속수가 아니다!
+let connectNum = '1 2 6 4 5';
+
+function connect(n) {
+    let connectArr = n.split(' ').sort();
+    console.log(connectArr)  // ["1", "2", "4", "5", "6"]
+
+    for (let i = 0; i < connectArr.length; i++) {
+        if (connectArr[i + 1] - connectArr[i] === 1) {
+            return 'yes'
+        }
+        else {
+            return 'no'
+        }
+    }
+}
+connect(connectNum)
